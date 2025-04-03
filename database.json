@@ -1,0 +1,10 @@
+{
+    "dev": {
+      "driver": "mysql",
+      "user": "${DB_APP_USER}",
+      "password": "${DB_APP_PASSWORD}",
+      "database": "${DB_NAME}",
+      "host": "localhost",
+      "port": 3306
+    }
+  }
