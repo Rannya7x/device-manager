@@ -1,5 +1,5 @@
 import express from 'express';
-import devicesRouter from './routes/devices.js';
+import devicesRouter from './routes/devicesRoutes.js';
 
 const app = express();
 
