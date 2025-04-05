@@ -1,12 +1,9 @@
 import express from 'express';
+import devicesRouter from './routes/devices.js';
 
-export const app = express();
+const app = express();
 
-app.get('/', (req, res) => {
-    res.send("Hello World");
-});
+app.use(express.json());
+app.use('/devices', devicesRouter);
 
-const PORT = process.env.PORT || 3000;
-export const server = app.listen(PORT, () => {
-    console.log('Server is running on port 3000');
-});
+export default app;
