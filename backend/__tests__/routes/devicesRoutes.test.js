@@ -20,7 +20,7 @@ describe("GET /devices", () => {
         response.body.forEach(device => {
             expect(device).toEqual(expect.objectContaining({
                 id: expect.any(Number),
-                name: expect.any(String),
+                category_id: expect.any(Number),
                 color: expect.any(String),
                 part_number: expect.any(Number),
                 created_at: expect.any(String),
