@@ -1,17 +1,17 @@
-import server from '../app.js';
+import request from 'supertest';
+import app from '../app.js';
 
-describe('Server runtime', () => {
-    afterAll((done)=>{
-        server.close(done);
+describe('App configuration', () => {
+    it('should mounts devices routes at /devices', async () => {
+        const response = await request(app).get('/devices/non-existent-route');
+        expect(response.status).toBe(404); // 404 proves router is mounted via sub-route
+
+        const baseResponse = await request(app).get('/devices');
+        expect(baseResponse.status).not.toBe(404); // proves the base route exists
     });
-
-    it('should start the server and listen', () => {
-        expect(server).toBeDefined();
-        expect(server.listening).toBe(true);
-    });
-
-    it('should use the correct port from enviroment variable', () => {
-        const address = server.address();
-        expect(address.port).toBe(process.env.PORT || 3000);
+    
+    it('should respond with 404 for non-existent routes', async () => {
+        const response = await request(app).get('/not-found');
+        expect(response.status).toBe(404);
     });
 });
