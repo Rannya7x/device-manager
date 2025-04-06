@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../../server.js";
+import app from "../../app.js";
 
 describe("GET /devices", () => {
     it("should respond with 200 OK", async () => {
