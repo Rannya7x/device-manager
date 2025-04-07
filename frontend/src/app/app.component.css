@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+header {
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    width: 100%;
+}
+h1{
+    font-size: 2rem;
+    color: #333;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+main{
+    flex: 1 1 auto;
+    width: 100%;
+}
+nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+a{
+    background-color: lightblue;
+    padding: 0.3rem 1.2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none; 
+    transition: all 0.2s ease; 
+}
+a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
