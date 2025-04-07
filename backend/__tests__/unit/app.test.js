@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../app.js';
+import app from '../../app.js';
 
 describe('App configuration', () => {
     it('should mounts devices routes at /devices', async () => {
