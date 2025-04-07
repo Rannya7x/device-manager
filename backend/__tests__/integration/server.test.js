@@ -19,7 +19,7 @@ describe('Server runtime', () => {
         expect(testServer.listening).toBe(true);
     });
 
-    it('should use the correct port from enviroment variable', () => {
+    it('should use the correct port', () => {
         const { port } = testServer.address();
         expect(port).toBeGreaterThan(0);
     });
