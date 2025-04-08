@@ -1,13 +1,8 @@
-<div *ngIf="isLoading" class="loading">Loading devices...</div>
-
-<div *ngIf="!isLoading && devices.length === 0">
-    No devices found.
-</div>
-
-<table *ngIf="!isLoading && devices.length > 0">
+<table>
     <thead>
         <tr>
             <th>ID</th>
+            <th>Name</th>
             <th>Category</th>
             <th>Color</th>
             <th>Part Number</th>
