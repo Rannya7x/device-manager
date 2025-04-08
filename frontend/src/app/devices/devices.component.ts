@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DeviceService } from '../services/device.service';
+
 
 interface Device {
     id: number;
@@ -16,24 +18,26 @@ interface Device {
     styleUrl: './devices.component.css'
 })
 export class DevicesComponent {
-  devices: Device[] = [
-    {
-      id: 1,
-      color: 'Red',
-      category: 'Electronics',
-      partNumber: 123456
-    },
-    {
-      id: 2,
-      color: 'Blue',
-      category: 'Furniture',
-      partNumber: 654321
-    },
-    {
-      id: 3,
-      color: 'Green',
-      category: 'Clothing',
-      partNumber: 789012
-    }
-  ]
+  devices: Device[] = [];
+  isLoading: boolean = true;
+
+  constructor(private deviceService: DeviceService) { }
+
+  loadDevices() {
+    this.isLoading = true;
+    this.deviceService.getDevices().subscribe({
+      next: (data) => {
+        this.devices = data;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error('Error fetching devices:', error);
+        this.isLoading = false;
+      }
+    });
+  }
+
+  ngOnInit(): void {
+    this.loadDevices();
+  }
 }
