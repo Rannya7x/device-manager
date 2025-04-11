@@ -1,8 +1,8 @@
-import db from '../db.js';
+import { getAllDevices } from '../models/devicesModel.js';
 
 export default async function listDevices(req, res) {
     try{
-        const [devices] = await db.query('SELECT * FROM devices');
+        const devices = await getAllDevices();
         res.status(200).json(devices);
     }catch (error){
         console.error('Database error:', error);
