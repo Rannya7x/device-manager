@@ -1,5 +1,5 @@
 import express from 'express';
-import devicesRouter from './src/routes/devicesRoutes.js';
+import devicesRouter from './routes/devicesRoutes.js';
 
 const app = express();
 app.use(express.json());
