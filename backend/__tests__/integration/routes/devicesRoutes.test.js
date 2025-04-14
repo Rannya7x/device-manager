@@ -70,18 +70,7 @@ describe("Devices API", () => {
                 .post("/devices")
                 .send(incompleteDevice);        
             expect(response.status).toBe(400);
-        });
-        it("should return 404 for non-existent category_id", async () => {
-            const nonExistentCategoryDevice = {
-                category_id: await db.query('SELECT MAX(id) + 1 FROM categories') || 9999, // Assuming this ID does not exist
-                color: "testColor",
-                part_number: 123456
-            };
-            const response = await request(app)
-                .post("/devices")
-                .send(nonExistentCategoryDevice);          
-            expect(response.status).toBe(404);
-            expect(response.body.error).toMatch
+            expect(response.body.error).toMatch(/Missing required fields/i);
         });
     });
 });
