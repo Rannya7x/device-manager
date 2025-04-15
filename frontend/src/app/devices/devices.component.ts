@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DeviceService } from '../services/device.service';
+import { DeviceFormComponent } from './device-form/device-form.component';
 
 
 interface Device {
@@ -13,7 +14,10 @@ interface Device {
 @Component({
     selector: 'app-devices',
     standalone: true,
-    imports: [CommonModule],
+    imports: [
+      CommonModule,
+      DeviceFormComponent
+    ],
     templateUrl: './devices.component.html',
     styleUrl: './devices.component.css'
 })
