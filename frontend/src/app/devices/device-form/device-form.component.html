@@ -1,0 +1,45 @@
+<form #deviceForm="ngForm" (ngSubmit)="onSubmit(deviceForm)" class="device-form">
+    
+    <label for="">Category:</label>
+    <select name="category" 
+            [(ngModel)]="newDevice.category_id"
+            #categorySelect="ngModel"
+            required>
+        <option value="" disabled selected>Select a category</option>
+        <option [value]="cat.id" *ngFor="let cat of categories">
+            {{ cat.name }}
+        </option>
+    </select>
+    <div *ngIf="categorySelect.invalid && categorySelect.touched" class="error-messages">
+        <div *ngIf="categorySelect.errors?.['required']">Category is required.</div>
+    </div>
+    
+    <label for="">Color:</label>
+    <input type="text" 
+           name="color" 
+           [(ngModel)]="newDevice.color"
+           #colorInput="ngModel"
+           required
+           pattern="[a-zA-Z]+"
+           maxlength="16">
+    <div *ngIf="colorInput.invalid && (colorInput.dirty || colorInput.touched)" class="error-message">
+        <div *ngIf="colorInput.errors?.['required']">Color is required.</div>
+        <div *ngIf="colorInput.errors?.['pattern']">Only letters are allowed.</div>
+        <div *ngIf="colorInput.errors?.['maxlength']">Max length is 16 characters.</div>
+    </div>
+
+    <label for="">Part Number:</label>
+    <input type="number" 
+           name="part_number" 
+           [(ngModel)]="newDevice.part_number"
+           #partNumberInput="ngModel"
+           required
+           min="1">
+    <div *ngIf="partNumberInput.invalid && (partNumberInput.dirty || partNumberInput.touched)" class="error-message">
+        <div *ngIf="partNumberInput.errors?.['required']">Part number is required.</div>
+        <div *ngIf="partNumberInput.errors?.['min']">Part number must be positivr.</div>
+    </div>
+    <button type="submit" class="submit-btn" [disabled]="!deviceForm.valid">
+        Add device
+    </button>
+</form>
