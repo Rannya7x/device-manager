@@ -6,8 +6,10 @@
 }
 header {
     display: flex;
+    flex-direction: column;
     flex: 0 0 auto;
     justify-content: center;
+    align-items: center;
     width: 100%;
 }
 h1{
@@ -15,13 +17,10 @@ h1{
     color: #333;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-main{
-    flex: 1 1 auto;
-    width: 100%;
-}
 nav{
     display: flex;
-    justify-content: space-evenly;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
 }
 a{
     background-color: lightblue;
@@ -35,4 +34,9 @@ a{
 a:hover {
     transform: translateY(-2px);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+main{
+    flex: 1 1 auto;
+    width: 100%;
+    overflow: auto;
 }
