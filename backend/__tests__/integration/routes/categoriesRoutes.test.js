@@ -1,6 +1,6 @@
 import request from 'supertest';
-import app from '../../src/app.js';
-import db from '../../db.js';
+import app from '../../../src/app.js';
+import db from '../../../db.js';
 
 describe("Categories API", () => {
     afterAll(async () => {
