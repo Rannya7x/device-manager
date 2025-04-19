@@ -10,7 +10,7 @@
             {{ cat.name }}
         </option>
     </select>
-    <div *ngIf="categorySelect.invalid && categorySelect.touched" class="error-messages">
+    <div *ngIf="categorySelect.invalid && categorySelect.touched" class="error-message">
         <div *ngIf="categorySelect.errors?.['required']">Category is required.</div>
     </div>
     

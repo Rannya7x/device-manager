@@ -1,12 +1,12 @@
 <div class="devices-container">
     <div class="form-section">
-        <h2>Add new device</h2>
+        <h3>Add new device</h3>
         <app-device-form></app-device-form>
     </div>
 
-    <div *ngIf="isLoading" class="loading">Loading devices...</div>
+    <div *ngIf="isLoading" class="placeholder loading">Loading devices...</div>
 
-    <div *ngIf="!isLoading && devices.length === 0">
+    <div *ngIf="!isLoading && devices.length === 0" class=" placeholder devices-not-found">
         No devices found.
     </div>
 
