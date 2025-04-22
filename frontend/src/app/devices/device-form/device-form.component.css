@@ -4,11 +4,9 @@
     gap: 0.8rem;
     background-color: rgb(75, 75, 75);
     text-align: start;
-    padding: 0 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem 1rem;
     border-radius: 0 0 0.8rem 0.8rem;
 }
-label{}
 select{
     padding: 0.5rem;
     border-radius: 0.8rem;
@@ -22,6 +20,7 @@ input{
     border: 1px solid #ccc;
     background-color: rgb(75, 75, 75);
     color: #fff;
+    outline: none;
 }
 button{
     max-width: fit-content;
