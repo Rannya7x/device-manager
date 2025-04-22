@@ -12,7 +12,7 @@ interface Category {
 })
 
 export class CategoryService {
-  private apiUrl = '/categories';
+  private apiUrl = '/api/categories';
   constructor(private http: HttpClient) { }
 
   getCategories(): Observable<Category[]> {

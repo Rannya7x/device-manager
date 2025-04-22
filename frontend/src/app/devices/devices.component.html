@@ -1,10 +1,10 @@
 <div class="devices-container">
     <div class="form-section">
         <h3>Add new device</h3>
-        <app-device-form></app-device-form>
+        <app-device-form (deviceAdded)="loadDevices()"></app-device-form>
     </div>
 
-    <div *ngIf="isLoading" class="placeholder loading">Loading devices...</div>
+    <div *ngIf="isLoading" class="placeholder loading">Loading devices...</div> 
 
     <div *ngIf="!isLoading && devices.length === 0" class=" placeholder devices-not-found">
         No devices found.
@@ -23,9 +23,9 @@
         <tbody>
             <tr *ngFor="let device of devices">
                 <td>{{ device.id }}</td>
-                <td>{{ device.category }}</td>
+                <td>{{ device.category_id }}</td>
                 <td>{{ device.color }}</td>
-                <td>{{ device.partNumber }}</td>
+                <td>{{ device.part_number }}</td>
                 <td>
                     <button>Edit</button>
                     <button>Delete</button>
