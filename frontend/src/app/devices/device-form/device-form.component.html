@@ -1,7 +1,7 @@
 <form #deviceForm="ngForm" (ngSubmit)="onSubmit(deviceForm)" class="device-form">
     
     <label for="">Category:</label>
-    <select name="category" 
+    <select name="category_id" 
             [(ngModel)]="newDevice.category_id"
             #categorySelect="ngModel"
             required>
