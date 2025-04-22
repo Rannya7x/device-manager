@@ -1,7 +1,7 @@
 <form #deviceForm="ngForm" (ngSubmit)="onSubmit(deviceForm)" class="device-form">
     
     <label for="">Category:</label>
-    <select name="category" 
+    <select name="category_id" 
             [(ngModel)]="newDevice.category_id"
             #categorySelect="ngModel"
             required>
@@ -10,7 +10,7 @@
             {{ cat.name }}
         </option>
     </select>
-    <div *ngIf="categorySelect.invalid && categorySelect.touched" class="error-messages">
+    <div *ngIf="categorySelect.invalid && categorySelect.touched" class="error-message">
         <div *ngIf="categorySelect.errors?.['required']">Category is required.</div>
     </div>
     

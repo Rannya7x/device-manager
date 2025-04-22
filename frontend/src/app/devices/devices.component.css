@@ -1,6 +1,40 @@
+.devices-container{
+    min-width: fit-content;
+    width: 90vw;
+    margin: 0 auto;
+}
+.form-section{
+    color: #fff;
+    text-align: center;
+    padding: 0.2rem 0;
+    border-radius: 0.8rem;
+    /*box-shadow: 2px 2px 20px 2px #2e2d2dc4;*/
+}
+.form-section h3{
+    margin: 0 auto;
+    padding: 0.7rem 0;
+    border-radius: 0.8rem 0.8rem 0 0;
+    background-color: rgba(29, 29, 29, 0.804);
+}
+.placeholder {
+    max-width: fit-content;
+    margin: 0 auto;
+}
 table{
     margin: 0 auto;
-    max-width: fit-content;
-    border: 1px solid #ccc;
+    width: 90vw;
+    min-width: fit-content;
     overflow: scroll;
+    border-radius: 0.8rem;
+}
+table th{
+    background-color: rgba(29, 29, 29, 0.804);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.8rem 0.8rem 0 0;
+}
+table td{
+    background-color: rgb(75, 75, 75);
+    color: #fff;
+    padding: 0.5rem;
 }

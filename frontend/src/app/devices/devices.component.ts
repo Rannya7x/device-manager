@@ -2,15 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DeviceService } from '../services/device.service';
 import { DeviceFormComponent } from './device-form/device-form.component';
-
-
-interface Device {
-    id: number;
-    color: string;
-    category: string;
-    partNumber: number;
-};  
-
+import { Device } from '../interfaces/devices';  
 @Component({
     selector: 'app-devices',
     standalone: true,

@@ -1,31 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-
-interface Device {
-    id: number;
-    color: string;
-    category: string;
-    partNumber: number;
-}
+import { Device } from '../interfaces/devices';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DeviceService {
-	private apiUrl = '/devices';
+	private apiUrl = '/api/devices';
 
     constructor(private http: HttpClient) { }
 
+    createDevice(deviceData: Omit<Device, 'id' | 'created_at'|'updated_at'>): Observable<Device> {
+        return this.http.post<Device>(this.apiUrl, deviceData);
+    }
+
 	getDevices(): Observable<Device[]> {
-		return this.http.get<any[]>(this.apiUrl).pipe(
-            map(devices => devices.map(device => ({
-                id: device.id,
-                color: device.color,
-                category: device.category_id,
-                partNumber: device.part_number
-            })))
-        );
+		return this.http.get<Device[]>(this.apiUrl);
 	}
 }

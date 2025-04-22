@@ -1,0 +1,40 @@
+.device-form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    background-color: rgb(75, 75, 75);
+    text-align: start;
+    padding: 1rem 1rem;
+    border-radius: 0 0 0.8rem 0.8rem;
+}
+select{
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid #ccc;
+    background-color: rgb(75, 75, 75);
+    color: #fff;
+}
+input{
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid #ccc;
+    background-color: rgb(75, 75, 75);
+    color: #fff;
+    outline: none;
+}
+button{
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 0.5rem 2.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid #ccc;
+    background-color: rgb(232, 231, 231);
+    color: #0f0f0f;
+    cursor: pointer;
+    font-weight: 800;
+}
+.error-message{
+    color: rgb(191, 140, 140);
+    font-size: 0.8rem;
+    text-align: center;
+}
