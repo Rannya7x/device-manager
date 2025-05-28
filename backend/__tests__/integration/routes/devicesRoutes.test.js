@@ -97,7 +97,7 @@ describe("Devices API", () => {
             });
         });
         it("should return 404 when device is actually deleted from database", async () => {
-            await request(app).delete(`devices/${testDeviceId}`);
+            await request(app).delete(`/devices/${testDeviceId}`);
 
             const response = await request(app).get(`/devices/${testDeviceId}`);
 
@@ -105,13 +105,14 @@ describe("Devices API", () => {
         });
         it("should return 404 for non-existent device", async () => {
             const nonExistentId = 999999;
-            const response = await request(app).delete(`devices/${nonExistentId}`);
+            const response = await request(app).delete(`/devices/${nonExistentId}`);
 
             expect(response.status).toBe(404);
             expect(response.body.error).toMatch(/Device not found/i);
         });
         it("should return 400 for invalid ID format or type", async () => {
-            const response = await request(app).delete("devices/invalidId");
+            const invalidId = "invalidId";
+            const response = await request(app).delete(`/devices/${invalidId}`);
 
             expect(response.status).toBe(400);
             expect(response.body.error).toMatch(/Invalid ID format/i);
