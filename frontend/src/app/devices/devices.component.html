@@ -28,7 +28,9 @@
                 <td>{{ device.part_number }}</td>
                 <td>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button (click)="deleteDevice(device.id)">
+                        Delete
+                    </button>
                 </td>
             </tr>
         </tbody>

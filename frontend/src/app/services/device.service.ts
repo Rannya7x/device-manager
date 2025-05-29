@@ -18,4 +18,8 @@ export class DeviceService {
 	getDevices(): Observable<Device[]> {
 		return this.http.get<Device[]>(this.apiUrl);
 	}
+
+    deleteDevice(deviceId: number): Observable<void> {
+        return this.http.delete<void>(`${this.apiUrl}/${deviceId}`);
+    }
 }
