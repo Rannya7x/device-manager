@@ -19,6 +19,10 @@ export class DevicesComponent {
 
   constructor(private deviceService: DeviceService) { }
 
+  ngOnInit(): void {
+    this.loadDevices();
+  }
+
   loadDevices() {
     this.isLoading = true;
     this.deviceService.getDevices().subscribe({
@@ -33,7 +37,18 @@ export class DevicesComponent {
     });
   }
 
-  ngOnInit(): void {
-    this.loadDevices();
+  deleteDevice(deviceId: number): void {
+    if (confirm('Are you sure you want to delete this device?')) {
+      this.deviceService.deleteDevice(deviceId).subscribe({
+        next: () => {
+          this.devices = this.devices.filter(device => device.id !== deviceId);
+          console.log(`Device with ID ${deviceId} deleted successfully.`);
+        },
+        error: (error) => {
+          console.error(`Error deleting device with ID ${deviceId}:`, error);
+          alert(`Error deleting device: ${error.message || 'Unknown error'}`);
+        }
+      });
+    }
   }
 }

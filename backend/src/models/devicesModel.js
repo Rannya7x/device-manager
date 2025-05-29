@@ -2,7 +2,6 @@ import db from '../../db.js';
 
 export async function getAllDevices() {
     const [devices] = await db.query('SELECT * FROM devices');
-    console.log('Devices:', devices);
     return devices;
 }
 
@@ -18,4 +17,13 @@ export async function createDevice(device) {
         updated_at: new Date().toISOString(),
     };
     return newDevice;
+}
+
+export async function deleteDevice(id) {
+    const [result] = await db.query('DELETE FROM devices where id = ?', [id]);
+
+    return { 
+        affectedRows: result.affectedRows,
+        deletedId: id 
+    };
 }
