@@ -1,7 +1,8 @@
 <form #deviceForm="ngForm" (ngSubmit)="onSubmit(deviceForm)" class="device-form">
     
-    <label for="">Category:</label>
-    <select name="category_id" 
+    <label for="category-select">Category:</label>
+    <select id="category-select"
+            name="category_id" 
             [(ngModel)]="newDevice.category_id"
             #categorySelect="ngModel"
             required>
@@ -14,8 +15,9 @@
         <div *ngIf="categorySelect.errors?.['required']">Category is required.</div>
     </div>
     
-    <label for="">Color:</label>
-    <input type="text" 
+    <label for="color-input">Color:</label>
+    <input id="color-input"
+            type="text" 
            name="color" 
            [(ngModel)]="newDevice.color"
            #colorInput="ngModel"
@@ -28,8 +30,9 @@
         <div *ngIf="colorInput.errors?.['maxlength']">Max length is 16 characters.</div>
     </div>
 
-    <label for="">Part Number:</label>
-    <input type="number" 
+    <label for="part-number-input">Part Number:</label>
+    <input id="part-number-input"
+            type="number" 
            name="part_number" 
            [(ngModel)]="newDevice.part_number"
            #partNumberInput="ngModel"
